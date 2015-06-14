@@ -5,7 +5,9 @@
 We will load the data create a clean version of a data set, which has only rows from the original dataset that are complete (e.g. have no NA values). We also load graphic libraries we are going to use, and set global options
 
 ```r
+library(knitr)
 library(ggplot2)
+opts_chunk$set(echo = TRUE, cache = TRUE, cache.path = "cache/", fig.path = "figure/")
 # numbers should be shown up to 4 digits precision
 options(scipen=1, digits=4)
 data=read.csv("activity.csv", header=TRUE)
@@ -47,7 +49,7 @@ Plot a histogram of number of steps
 qplot(steps, data=groupped, geom="histogram", binwidth=500)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![](figure/unnamed-chunk-4-1.png) 
 
 Calculate the mean and median of number of steps taken by date
 
@@ -72,7 +74,7 @@ Now do the actual plot
 ggplot(groupped, aes(interval, steps))+geom_line(color="blue")+ggtitle("Average number of steps taken by interval")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
+![](figure/unnamed-chunk-7-1.png) 
 Find Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps
 
 ```r
@@ -146,7 +148,7 @@ Plot a histogram of number of steps
 qplot(steps, data=groupped, geom="histogram", binwidth=500)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-14-1.png) 
+![](figure/unnamed-chunk-14-1.png) 
 
 Calculate the mean and median of number of steps taken by date
 
@@ -180,7 +182,7 @@ Create plots for weekend and weekdays
 ggplot(groupped, aes(interval, steps, color=day))+geom_line()+geom_smooth(method="loess")+ggtitle("Average number of steps taken by interval")+facet_grid(day ~ .)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-18-1.png) 
+![](figure/unnamed-chunk-18-1.png) 
 
 It seems that timer series indeed different for weekends and weekdays - weekdays activity starts earlier (around interval 500), the peak of activity is higher (around 200 vs around 150 steps) and smoothed curve is somewhat different
 

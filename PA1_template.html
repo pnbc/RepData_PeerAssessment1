@@ -58,7 +58,9 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <div id="loading-and-preprocessing-the-data" class="section level2">
 <h2>Loading and preprocessing the data</h2>
 <p>We will load the data create a clean version of a data set, which has only rows from the original dataset that are complete (e.g. have no NA values). We also load graphic libraries we are going to use, and set global options</p>
-<pre class="r"><code>library(ggplot2)
+<pre class="r"><code>library(knitr)
+library(ggplot2)
+opts_chunk$set(echo = TRUE, cache = TRUE, cache.path = &quot;cache/&quot;, fig.path = &quot;figure/&quot;)
 # numbers should be shown up to 4 digits precision
 options(scipen=1, digits=4)
 data=read.csv(&quot;activity.csv&quot;, header=TRUE)

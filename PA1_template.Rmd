@@ -9,7 +9,9 @@ output:
 ## Loading and preprocessing the data
 We will load the data create a clean version of a data set, which has only rows from the original dataset that are complete (e.g. have no NA values). We also load graphic libraries we are going to use, and set global options
 ```{r}
+library(knitr)
 library(ggplot2)
+opts_chunk$set(echo = TRUE, cache = TRUE, cache.path = "cache/", fig.path = "figure/")
 # numbers should be shown up to 4 digits precision
 options(scipen=1, digits=4)
 data=read.csv("activity.csv", header=TRUE)
